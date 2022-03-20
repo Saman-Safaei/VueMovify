@@ -15,5 +15,6 @@ import NavBar from '@/components/Navigation/NavBar.vue';
 }
 .view {
   margin-top: 3.5rem;
+  min-height: 100vh;
 }
 </style>
