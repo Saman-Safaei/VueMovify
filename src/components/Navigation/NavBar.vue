@@ -186,6 +186,7 @@ onBeforeUnmount(() => {
       background: $secondary-variant-color;
       margin: 0 0.3rem;
       border-radius: 0.5rem;
+      border: solid white 2px;
     }
   }
 }
