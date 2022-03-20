@@ -6,7 +6,7 @@
     <div class="card__content">
       <div class="card__info">
         <h4 class="info__title">NeoFilm</h4>
-        <p class="info__rate">2.4 / 10</p>
+        <p class="info__genres">crime - cowboy - fantasy</p>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const props = defineProps(['imgUrl']);
+const props = defineProps(['imgUrl', 'styles']);
 
 function imgClicked() {
   open(props.imgUrl, "_blank");
@@ -25,9 +25,12 @@ function imgClicked() {
 
 <style lang="scss" scoped>
 .card {
-  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
   background: white;
-  box-shadow: 0 4px 0.5rem 0.1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   overflow: hidden;
 
@@ -37,17 +40,20 @@ function imgClicked() {
 
   .card__content {
     padding: 0.5rem;
+    flex-grow: 1;
 
     .card__info {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.3rem;
+      height: 100%;
 
       .info__title {
-        flex-basis: 70%;
+        text-align: center;
       }
-      .info__rate {
-        flex-basis: 30%;
-        text-align: end;
+      .info__genres {
+        text-align: center;
       }
     }
   }
