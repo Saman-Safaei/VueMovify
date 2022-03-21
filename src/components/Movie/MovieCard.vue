@@ -5,7 +5,7 @@
 
     <div class="card__content">
       <div class="card__info">
-        <h4 class="info__title">NeoFilm</h4>
+        <h4 class="info__title">{{ props.title }}</h4>
         <p class="info__genres">{{ props.genres.join(" - ") }}</p>
       </div>
     </div>
@@ -16,7 +16,7 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const props = defineProps(['imgUrl', 'genres', 'styles', 'id']);
+const props = defineProps(['imgUrl', 'genres', 'styles','title', 'id']);
 
 function imgClicked() {
   open(props.imgUrl, "_blank");

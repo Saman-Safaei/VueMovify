@@ -1,7 +1,7 @@
 <template>
   <TopHeader />
   <MovieContainer>
-    <movie-card v-for="movie in movieList" :key="movie['id']" :img-url="movie['poster']" :genres="movie['genres']"></movie-card>
+    <movie-card v-for="movie in movieList" :key="movie['id']" :title="movie['title']" :img-url="movie['poster']" :genres="movie['genres']"></movie-card>
   </MovieContainer>
 </template>
 
