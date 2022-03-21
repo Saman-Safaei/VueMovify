@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" :style="props.styles">
     
     <img :src="props.imgUrl" alt="null" class="card__image" @click="imgClicked">
 
@@ -16,10 +16,10 @@
 <script setup>
 import { defineProps } from 'vue';
 
-const props = defineProps(['imgUrl', 'styles']);
+const props = defineProps(['imgUrl', 'styles', 'url']);
 
 function imgClicked() {
-  open(props.imgUrl, "_blank");
+  open(props.url, "_blank");
 }
 </script>
 
