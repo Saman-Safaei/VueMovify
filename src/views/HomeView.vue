@@ -1,29 +1,26 @@
 <template>
   <TopHeader />
-  <div class="movie-container">
-    <movie-card img-url="http://moviesapi.ir/images/tt0111161_poster.jpg"></movie-card>
-    <movie-card img-url="http://moviesapi.ir/images/tt0111161_poster.jpg"></movie-card>
-    <movie-card img-url="http://moviesapi.ir/images/tt0111161_poster.jpg"></movie-card>
-    <movie-card img-url="http://moviesapi.ir/images/tt0111161_poster.jpg"></movie-card>
-    <movie-card img-url="http://moviesapi.ir/images/tt0111161_poster.jpg"></movie-card>
-    <movie-card img-url="http://moviesapi.ir/images/tt0111161_poster.jpg"></movie-card>
-    <movie-card img-url="http://moviesapi.ir/images/tt0111161_poster.jpg"></movie-card>
-  </div>
+  <MovieContainer>
+    <movie-card v-for="movie in movieList" :key="movie['id']" :img-url="movie['poster']" :genres="movie['genres']"></movie-card>
+  </MovieContainer>
 </template>
 
 <script setup>
 import TopHeader from "@/components/Header/TopHeader.vue";
 import MovieCard from "@/components/Movie/MovieCard.vue";
+import MovieContainer from "@/components/Movie/MovieContainer.vue";
+
+import { api } from "@/api";
+import { reactive } from "vue";
+
+
+const movieList = reactive([]);
+
+api.get('https://moviesapi.ir/api/v1/movies?page=1').then(res => {movieList.push(...res.data.data)});
+
+
 </script>
 
 <style lang="scss" scoped>
-
-.movie-container {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 31% 31% 31%;
-  padding: 1rem;
-  justify-content: space-between;
-}
 
 </style>

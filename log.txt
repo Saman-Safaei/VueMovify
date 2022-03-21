@@ -1,0 +1,113 @@
+commit 6513398020641c84e6864ce9b3411af75f1dff58
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 11:12:58 2022 +0330
+
+    edit README.md file and add preview link to it
+
+commit 85beaf3ba46220ae1f3e5698b06e67add8e314bb
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 11:01:41 2022 +0330
+
+    test readme file
+
+commit 4b22cd1d9b69e89edb8cdebaae93df7400e4d3cf
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 10:59:10 2022 +0330
+
+    create movie container . style and codes will be add in future
+
+commit 430ea9d1d9779f306f7b64aef405655fb832f0b8
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 10:58:15 2022 +0330
+
+    add cards to HomeView for test card styles
+
+commit 9b43c25d0cc17102341594cdabc2e773d25ea155
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 10:57:39 2022 +0330
+
+    fix some styles
+
+commit 378ab62e7fe224589a789dff2bfa87e6283bf645
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 09:52:01 2022 +0330
+
+    add some styles
+
+commit f35069afed159966f41ce4b556d80739e1e46220
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 09:51:18 2022 +0330
+
+    edit html background color - set to gray -
+
+commit 7371a46524215f140cada786ebb8faf3b11181b8
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 08:20:16 2022 +0330
+
+    import splidejs theme css
+
+commit b1023be859c4c107da4d588826d75da7ee822c26
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 08:19:47 2022 +0330
+
+    install vue splide js
+
+commit d08052f956b75f946dc2dc13e7a534a9d9090540
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 08:17:50 2022 +0330
+
+    remove swiper
+
+commit 200ad39ce8720aa0e7f627074912116435f3929f
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 08:12:45 2022 +0330
+
+    add border to search submit button
+
+commit 260180115840374c295121332a48ef93f3811e36
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sun Mar 20 08:12:03 2022 +0330
+
+    add min-height to PageViews
+
+commit facb60db220cf3ba1f9cf965f3ba474d81f46af5
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sat Mar 19 15:09:35 2022 +0330
+
+    create 404 page for github to fix router problems
+
+commit 25f2b2ddaf4caa36e2ef4fde92f58afeb3ac3116
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sat Mar 19 15:08:24 2022 +0330
+
+    Create Docs Folder and upload files
+
+commit da2b8bbca325d555c5ca5735960023635cbaf47d
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sat Mar 19 15:06:53 2022 +0330
+
+    Edit Public Path
+
+commit 6b57cb562bc647aaa308448bba69a7e6114beeb4
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sat Mar 19 15:05:19 2022 +0330
+
+    Add Vue Project
+
+commit 619fc42d4c0e0a13ffc875983910b0e9e4e14759
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sat Mar 19 15:04:55 2022 +0330
+
+    Add GitIngnore File
+
+commit 6f4cd2a7a33f5abd4babe422c9697b3a3c7136ce
+Author: SamuelSam-dev <xsamansafaeix@gmail.com>
+Date:   Sat Mar 19 15:03:39 2022 +0330
+
+    remove redne file
+
+commit 8897c33bff8c88568d0c7b8e89a3d4680b5e598c
+Author: SamanDev <68618538+SamuelSam-dev@users.noreply.github.com>
+Date:   Sat Mar 19 14:59:38 2022 +0330
+
+    Create redne

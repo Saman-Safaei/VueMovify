@@ -10,6 +10,8 @@
 .container {
   display: grid;
   grid-template-columns: auto;
+  padding: 1rem;
+  gap: 1rem;
 
   @media screen and (min-width: $sm) {
     grid-template-columns: auto auto;
