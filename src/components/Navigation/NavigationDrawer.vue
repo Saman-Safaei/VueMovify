@@ -40,7 +40,7 @@ const props = defineProps(["show"]);
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 29;
+  z-index: $drawer-backdrop-z;
 }
 
 .drawer {
@@ -51,10 +51,11 @@ const props = defineProps(["show"]);
   bottom: 0;
   left: 0;
   min-width: 70%;
-  z-index: 30;
+  z-index: $drawer-z;
 
   .drawer__logo {
     width: 50%;
+    max-width: 120px;
     display: block;
     margin: 0 auto;
   }

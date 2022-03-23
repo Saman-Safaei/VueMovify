@@ -5,6 +5,13 @@
   </div>
 </template>
 
+<script setup>
+import { useRoute } from 'vue-router';
+
+console.log(useRoute().query);
+
+</script>
+
 <style lang="scss" scoped>
 .content {
   padding: 1rem;

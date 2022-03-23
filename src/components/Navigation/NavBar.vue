@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
   background: transparent;
   padding: 0.5rem 0.8rem;
   color: white;
-  z-index: 20;
+  z-index: $navbar-z;
   transition: all 200ms;
 
   .navbar__mobile {
@@ -167,6 +167,7 @@ onBeforeUnmount(() => {
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.7);
+  z-index: $search-z;
 
   .search-box__form {
     display: flex;

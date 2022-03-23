@@ -1,7 +1,7 @@
 <template>
   <div class="card" :style="props.styles">
     
-    <img :src="props.imgUrl" alt="null" class="card__image" @click="imgClicked">
+    <img :src="props.imgUrl" alt="null" class="card__image">
 
     <div class="card__content">
       <div class="card__info">
@@ -9,6 +9,8 @@
         <p class="info__genres">{{ props.genres.join(" - ") }}</p>
       </div>
     </div>
+
+    <router-link class="card__link" to="#"></router-link>
 
   </div>
 </template>
@@ -18,9 +20,6 @@ import { defineProps } from 'vue';
 
 const props = defineProps(['imgUrl', 'genres', 'styles','title', 'id']);
 
-function imgClicked() {
-  open(props.imgUrl, "_blank");
-}
 </script>
 
 <style lang="scss" scoped>
@@ -33,9 +32,19 @@ function imgClicked() {
   box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
 
   .card__image {
     width: 100%;
+  }
+
+  .card__link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
   }
 
   .card__content {

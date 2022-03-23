@@ -24,5 +24,9 @@
   @media screen and (min-width: $lg) {
     grid-template-columns: auto auto auto auto;
   }
+
+  @media screen and (min-width: $xl) {
+    grid-template-columns: auto auto auto auto auto;
+  }
 }
 </style>
