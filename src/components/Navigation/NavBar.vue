@@ -25,7 +25,7 @@
 
   <transition name="fade">
     <div class="search-box" v-show="showSearch">
-      <form class="search-box__form" action="/search" method="get">
+      <form class="search-box__form" :action="$router.getRoutes().find(obj => obj.name === 'about' ).path" method="get">
         <input class="search-box__field" type="text" name="s" autocomplete="off" />
         <button class="search-box__submit" type="submit">Search</button>
       </form>

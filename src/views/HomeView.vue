@@ -24,25 +24,27 @@ import { computed, reactive, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
-const page = computed(() => route.query.p);
+const page = computed(() => route.query.p || 1);
 
 
 const movieList = reactive([]);
-const metaData = reactive({});
+const metaData = reactive({data: null});
 
-function fetchData() {
+async function fetchData() {
 
-  api.get(`https://moviesapi.ir/api/v1/movies?page=${page.value}`)
+  await api.get(`/movies?page=${page.value}`)
     .then(res => {
       metaData.data = res.data.metadata;
       movieList.length = 0;
       movieList.push(...res.data.data);
+    }).catch(() => {
+      movieList.push({id: 0, title: "Loading Failed", genres: ["Loading Failed"], poster: "https://i.pinimg.com/originals/25/32/13/253213c58ce79335d9f5a5c9b17c3627.gif"})
     });
 }
 
-watch(page, () => {
+watch(page, async () => {
+  await fetchData();
   window.scrollTo(0, 0);
-  fetchData();
 })
 
 fetchData();
