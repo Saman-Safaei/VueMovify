@@ -2,7 +2,7 @@
 
 [Project Preview](https://samuelsam-dev.github.io/VueMovify/)
 
-## Project setup
+## Project setup >>
 
 ```shell
 npm install
