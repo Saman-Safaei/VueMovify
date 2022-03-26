@@ -51,9 +51,8 @@ async function fetchData() {
 watch(page, async () => {
   await fetchData();
   window.scroll({ top: 0, left: 0 });
-});
+}, { immediate: true });
 
-fetchData();
 </script>
 
 <style lang="scss" scoped>
