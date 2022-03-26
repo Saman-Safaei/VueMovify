@@ -19,7 +19,7 @@ const routes = [
   {
     path: '/:all(.*)*',
     name: 'error',
-    component: () => import('../views/AboutView.vue')
+    component: () => import('../views/ErrorView.vue')
   }
 ]
 
