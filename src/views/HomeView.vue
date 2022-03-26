@@ -30,9 +30,8 @@ const page = computed(() => route.query.p || 1);
 const movieList = reactive([]);
 const metaData = reactive({data: null});
 
-async function fetchData() {
-
-  await api.get(`/movies?page=${page.value}`)
+function fetchData() {
+  api.get(`/movies?page=${page.value}`)
     .then(res => {
       metaData.data = res.data.metadata;
       movieList.length = 0;
@@ -42,9 +41,11 @@ async function fetchData() {
     });
 }
 
-watch(page, async () => {
-  await fetchData();
-  window.scrollTo(0, 0);
+watch(page, () => {
+  window.scroll({top: 0, left: 0, behavior: 'smooth'});
+  setTimeout(() => {
+    fetchData();
+  }, 500);
 })
 
 fetchData();
