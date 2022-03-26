@@ -15,7 +15,6 @@
 </template>
 
 <script setup>
-
 import MovieCard from "@/components/Movie/MovieCard.vue";
 import MovieContainer from "@/components/Movie/MovieContainer.vue";
 import PageSelect from "@/components/Pagination/PageSelect.vue";
@@ -29,35 +28,38 @@ const page = computed(() => route.query.p || 1);
 
 const reqUrl = computed(() => {
   const genre = route.params.genreId;
-  
-  return genre === "all" 
+
+  return genre === "all"
     ? `/movies?page=${page.value}`
     : `/genres/${genre}/movies?page=${page.value}`;
 });
 
-
 const movieList = reactive([]);
 const metaData = reactive({ data: null });
 
-
-function fetchData() {
-  api.get(reqUrl.value)
-    .then(res => {
+async function fetchData() {
+  await api
+    .get(reqUrl.value)
+    .then((res) => {
       metaData.data = res.data.metadata;
       movieList.length = 0;
       movieList.push(...res.data.data);
-    }).catch(() => {
-      movieList.push({ id: 0, title: "Loading Failed", genres: ["Loading Failed"], poster: "https://i.pinimg.com/originals/25/32/13/253213c58ce79335d9f5a5c9b17c3627.gif" })
+    })
+    .catch(() => {
+      movieList.push({
+        id: 0,
+        title: "Loading Failed",
+        genres: ["Loading Failed"],
+        poster:
+          "https://i.pinimg.com/originals/25/32/13/253213c58ce79335d9f5a5c9b17c3627.gif",
+      });
     });
 }
 
-watch([page, reqUrl], () => {
-  window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-  setTimeout(() => {
-    fetchData();
-  }, 500);
+watch([page, reqUrl], async () => {
+  await fetchData();
+  window.scrollTo({ top: 0, left: 0 });
 });
 
 fetchData();
-
 </script>

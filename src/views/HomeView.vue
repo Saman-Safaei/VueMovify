@@ -26,31 +26,34 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 const page = computed(() => route.query.p || 1);
 
-
 const movieList = reactive([]);
-const metaData = reactive({data: null});
+const metaData = reactive({ data: null });
 
-function fetchData() {
-  api.get(`/movies?page=${page.value}`)
-    .then(res => {
+async function fetchData() {
+  await api
+    .get(`/movies?page=${page.value}`)
+    .then((res) => {
       metaData.data = res.data.metadata;
       movieList.length = 0;
       movieList.push(...res.data.data);
-    }).catch(() => {
-      movieList.push({id: 0, title: "Loading Failed", genres: ["Loading Failed"], poster: "https://i.pinimg.com/originals/25/32/13/253213c58ce79335d9f5a5c9b17c3627.gif"})
+    })
+    .catch(() => {
+      movieList.push({
+        id: 0,
+        title: "Loading Failed",
+        genres: ["Loading Failed"],
+        poster:
+          "https://i.pinimg.com/originals/25/32/13/253213c58ce79335d9f5a5c9b17c3627.gif",
+      });
     });
 }
 
-watch(page, () => {
-  window.scroll({top: 0, left: 0, behavior: 'smooth'});
-  setTimeout(() => {
-    fetchData();
-  }, 500);
-})
+watch(page, async () => {
+  await fetchData();
+  window.scroll({ top: 0, left: 0 });
+});
 
 fetchData();
-
-
 </script>
 
 <style lang="scss" scoped>
