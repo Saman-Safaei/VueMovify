@@ -60,6 +60,7 @@ api.get(`/movies/${route.params.id}`).then((res) => {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    align-items: flex-start;
 
     @media screen and (min-width: $md) {
       flex-direction: row;
@@ -67,12 +68,17 @@ api.get(`/movies/${route.params.id}`).then((res) => {
 
     .info__img {
       width: 100%;
+      object-fit: contain;
+
       @media screen and (min-width: $md) {
         width: 40%;
+        max-width: 300px;
       }
+
       @media screen and (min-width: $lg) {
         width: 30%;
       }
+
       border-radius: 1rem;
     }
     .info__desc-container {
@@ -84,19 +90,23 @@ api.get(`/movies/${route.params.id}`).then((res) => {
   }
 
   .imgs-title {
-      text-align: center;
-      margin: 1rem 0;
-    }
+    text-align: center;
+    margin: 1rem 0;
+  }
 
   .movie__imgs {
     padding: 1rem 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+
+    @media screen and (min-width: $md) {
+      grid-template-columns: 1fr 1fr;
+    }
 
     .movie__img {
       width: 100%;
-      border-radius: 1rem;
+      border-radius: 0.5rem;
     }
   }
 }
