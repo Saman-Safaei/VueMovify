@@ -8,6 +8,7 @@
         :img-url="movie['poster']"
         :genres="movie['genres']"
         :style="{ width: '100%' }"
+        :id="movie['id']"
       ></movie-card>
     </MovieContainer>
     <PageSelect view="movies" :metadata="metaData.data" v-if="metaData.data" />
