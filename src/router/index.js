@@ -17,6 +17,11 @@ const routes = [
     component: () => import('../views/MovieListView.vue')
   },
   {
+    path: '/movies/info/:id',
+    name: 'movie_info',
+    component: () => import('../views/MovieInfoView.vue')
+  },
+  {
     path: '/:all(.*)*',
     name: 'error',
     component: () => import('../views/ErrorView.vue')
