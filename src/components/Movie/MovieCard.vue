@@ -1,6 +1,6 @@
 <template>
   <div class="card" :style="props.styles">
-    <img :src="props.imgUrl" alt="null" class="card__image" loading="lazy" @load="loadFinished" v-show="loaded"/>
+    <img :src="props.imgUrl" alt="null" class="card__image" :class="{ 'card__image-hide': !loaded}" loading="lazy" @load="loadFinished"/>
     <div class="card__loading-placeholder" v-show="!loaded">Loading</div>
 
     <div class="card__content">
@@ -50,6 +50,10 @@ function loadFinished() {
 
   .card__image {
     width: 100%;
+  }
+  .card__image-hide {
+    width: 0;
+    height: 0;
   }
 
   .card__link {
