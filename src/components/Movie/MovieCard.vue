@@ -1,7 +1,7 @@
 <template>
   <div class="card" :style="props.styles">
-    <img v-show="loaded" :src="props.imgUrl" alt="null" class="card__image" loading="lazy" @load="loadFinished" />
-    <div v-if="!loaded" class="card__loading-placeholder">Loading</div>
+    <img :src="props.imgUrl" alt="null" class="card__image" loading="lazy" @load="loadFinished" v-show="loaded"/>
+    <div class="card__loading-placeholder" v-show="!loaded">Loading</div>
 
     <div class="card__content">
       <div class="card__info">
