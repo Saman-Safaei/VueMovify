@@ -1,6 +1,6 @@
 <template>
   <div class="card" :style="props.styles">
-    <img v-show="loaded" :src="props.imgUrl" alt="null" class="card__image" @load="loadFinished" />
+    <img v-show="loaded" :src="props.imgUrl" alt="null" class="card__image" loading="lazy" @load="loadFinished" />
     <div v-if="!loaded" class="card__loading-placeholder">Loading</div>
 
     <div class="card__content">
@@ -42,7 +42,7 @@ function loadFinished() {
   position: relative;
 
   .card__loading-placeholder {
-    aspect-ratio: 283/485;
+    aspect-ratio: 283/429;
     display: flex;
     align-items: center;
     justify-content: center;
