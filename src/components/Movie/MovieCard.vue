@@ -1,6 +1,7 @@
 <template>
   <div class="card" :style="props.styles">
-    <img :src="props.imgUrl" alt="null" class="card__image" />
+    <img v-show="loaded" :src="props.imgUrl" alt="null" class="card__image" @load="loadFinished" />
+    <div v-if="!loaded" class="card__loading-placeholder">Loading</div>
 
     <div class="card__content">
       <div class="card__info">
@@ -17,9 +18,15 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
 
 const props = defineProps(["imgUrl", "genres", "styles", "title", "id"]);
+const loaded = ref(false);
+
+function loadFinished() {
+  loaded.value = true;
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -33,6 +40,13 @@ const props = defineProps(["imgUrl", "genres", "styles", "title", "id"]);
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
+
+  .card__loading-placeholder {
+    aspect-ratio: 283/485;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .card__image {
     width: 100%;
