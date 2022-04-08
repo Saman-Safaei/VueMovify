@@ -58,8 +58,8 @@ async function fetchData() {
 }
 
 watch([page, reqUrl], async () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   await fetchData();
-  window.scrollTo({ top: 0, left: 0 });
 }, { immediate: true });
 
 </script>
