@@ -50,7 +50,7 @@ async function fetchData() {
 }
 
 watch(page, async () => {
-  window.scroll({ top: 0, left: 0, behavior: "smooth" });
+  window.scroll({ top: 400, left: 0, behavior: "smooth" });
   await fetchData();
 }, { immediate: true });
 
