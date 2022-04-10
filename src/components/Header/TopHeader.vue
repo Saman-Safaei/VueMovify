@@ -48,6 +48,7 @@ api({
   color: white;
   min-height: 80vh;
   background: url("@/assets/images/header-bg.jpeg") center/cover no-repeat;
+  background-attachment: fixed;
   padding: 2rem 0 0 0;
 
   .header__content {
