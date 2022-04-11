@@ -11,7 +11,10 @@
         :id="movie['id']"
       ></movie-card>
     </MovieContainer>
-    <PageSelect view="movies" :metadata="metaData.data" v-if="metaData.data" />
+    <div v-if="!isAnyData" class="no-movies">
+      <h3 class="no-movies__title">I can't find any movie :(</h3>
+    </div>
+    <PageSelect view="movies" :metadata="metaData.data" v-if="metaData.data && isAnyData" />
   </div>
 </template>
 
@@ -21,12 +24,14 @@ import MovieContainer from "@/components/Movie/MovieContainer.vue";
 import PageSelect from "@/components/Pagination/PageSelect.vue";
 
 import { api } from "@/api";
-import { computed, reactive, watch } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 const page = computed(() => route.query.p || 1);
 const search = computed(() => route.query.search);
+
+const isAnyData = ref(true);
 
 const reqUrl = computed(() => {
   const genre = route.params.genreId;
@@ -60,6 +65,9 @@ async function fetchData() {
           "https://i.pinimg.com/originals/25/32/13/253213c58ce79335d9f5a5c9b17c3627.gif",
       });
     });
+
+    if (movieList.length === 0) isAnyData.value = false;
+    else isAnyData.value = true;
 }
 
 watch([page, reqUrl], async () => {
@@ -68,3 +76,18 @@ watch([page, reqUrl], async () => {
 }, { immediate: true });
 
 </script>
+
+<style lang="scss" scoped>
+.no-movies {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20vh;
+
+  .no-movies__title {
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+}
+</style>
