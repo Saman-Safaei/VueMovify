@@ -26,13 +26,18 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 const page = computed(() => route.query.p || 1);
+const search = computed(() => route.query.search);
 
 const reqUrl = computed(() => {
   const genre = route.params.genreId;
 
-  return genre === "all"
-    ? `/movies?page=${page.value}`
-    : `/genres/${genre}/movies?page=${page.value}`;
+  if (genre === "search") 
+    return `/movies?q=${search.value}&page=${page.value}`;
+  
+  if (genre === "all")
+    return `/movies?page=${page.value}`;
+
+  return `/genres/${genre}/movies?page=${page.value}`;
 });
 
 const movieList = reactive([]);
