@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import mainStore from "@/stores/main"
 
 const routes = [
   {
@@ -31,6 +32,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  const store = mainStore();
+  store.loadingStart();
+  next()
+});
+
+router.afterEach(() => {
+  const store = mainStore();
+  store.loadingFinished();
 })
 
 export default router
