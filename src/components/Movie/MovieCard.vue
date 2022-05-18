@@ -1,5 +1,6 @@
 <template>
   <div class="card" :style="props.styles">
+    <span class="card__movie-rate">{{ rate }}</span>
     <img :src="props.imgUrl" alt="null" class="card__image" :class="{ 'card__image-hide': !loaded}" loading="lazy" @load="loadFinished"/>
     <div class="card__loading-placeholder" v-show="!loaded">Loading</div>
 
@@ -21,6 +22,8 @@
 import { defineProps, ref } from "vue";
 
 const props = defineProps(["imgUrl", "genres", "styles", "title", "id"]);
+const rate = ref((Math.random() * 10).toFixed(2));
+
 const loaded = ref(false);
 
 function loadFinished() {
@@ -40,6 +43,22 @@ function loadFinished() {
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
+
+  .card__movie-rate {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgb(239, 235, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    border: solid black 1px;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
 
   .card__loading-placeholder {
     aspect-ratio: 283/429;
@@ -62,7 +81,7 @@ function loadFinished() {
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
   }
 
   .card__content {
@@ -72,7 +91,7 @@ function loadFinished() {
     .card__info {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 0.3rem;
       height: 100%;
 
