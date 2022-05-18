@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkseries_tracker"]=self["webpackChunkseries_tracker"]||[]).push([[304],{1304:function(e,n,a){a.r(n),a.d(n,{default:function(){return p}});var r=a(3396);const t=e=>((0,r.dD)("data-v-4733951c"),e=e(),(0,r.Cn)(),e),s={class:"view content"},c=t((()=>(0,r._)("h3",{class:"title"},"About Me",-1))),i=t((()=>(0,r._)("p",{class:"description"},"Hello! I'm Saman Safaei, Junior Javascript Developer and Beginner in Vue.",-1))),u=[c,i];function o(e,n){return(0,r.wg)(),(0,r.iD)("div",s,u)}var d=a(89);const l={},v=(0,d.Z)(l,[["render",o],["__scopeId","data-v-4733951c"]]);var p=v}}]);
-//# sourceMappingURL=304.0a44f282.js.map
+//# sourceMappingURL=304.839da2d0.js.map
