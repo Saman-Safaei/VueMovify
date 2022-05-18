@@ -1,10 +1,12 @@
 <template>
   <NavBar/>
   <router-view/>
+  <progress-bar/>
 </template>
 
 <script setup>
 import NavBar from '@/components/Navigation/NavBar.vue';
+import ProgressBar from "@/components/Navigation/ProgressBar.vue";
 </script>
 
 <style lang="scss">
