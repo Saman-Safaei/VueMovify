@@ -2,8 +2,21 @@ import { defineStore } from 'pinia'
 
 export default defineStore('main', {
     state() {
-        return {};
+        return {
+          pageLoading: false
+        };
     },
-    actions: {},
-    getters: {}
+    actions: {
+      loadingStart() {
+        this.pageLoading = true;
+      },
+      loadingFinished() {
+        this.pageLoading = false;
+      }
+    },
+    getters: {
+      isPageLoading() {
+        return this.pageLoading;
+      }
+    }
 });
