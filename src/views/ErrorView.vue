@@ -5,7 +5,12 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 
+
+onMounted(() => {
+  document.title = "Vue Movify - Error";
+})
 </script>
 
 <style lang="scss" scoped>

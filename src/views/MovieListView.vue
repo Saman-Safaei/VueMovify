@@ -24,17 +24,17 @@ import MovieContainer from "@/components/Movie/MovieContainer.vue";
 import PageSelect from "@/components/Pagination/PageSelect.vue";
 
 import { api } from "@/api";
-import { computed, reactive, ref, watch } from "vue";
+import { computed, onMounted, reactive, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 const page = computed(() => route.query.p || 1);
 const search = computed(() => route.query.search);
+const genre = route.params.genreId;
 
 const isAnyData = ref(true);
 
 const reqUrl = computed(() => {
-  const genre = route.params.genreId;
 
   if (genre === "search") 
     return `/movies?q=${search.value}&page=${page.value}`;
@@ -75,6 +75,9 @@ watch([page, reqUrl], async () => {
   await fetchData();
 }, { immediate: true });
 
+onMounted(() => {
+  document.title = "Vue Movify - Movies with genre ID " + genre;
+})
 </script>
 
 <style lang="scss" scoped>

@@ -22,13 +22,7 @@
       </div>
       <h3 class="imgs-title">Images</h3>
       <div class="movie__imgs">
-        <img
-          class="movie__img"
-          v-for="img in data['images']"
-          :key="img"
-          :src="img"
-          alt="movie img"
-        />
+        <img class="movie__img" v-for="img in data['images']" :key="img" :src="img" alt="movie img" />
       </div>
     </div>
   </div>
@@ -37,16 +31,19 @@
 <script setup>
 import { api } from "@/api";
 import { useRoute } from "vue-router";
-import { reactive } from "vue";
+import { reactive, onMounted } from "vue";
 
 const route = useRoute();
 const data = reactive({});
 
-api.get(`/movies/${route.params.id}`).then((res) => {
-  for (let key in res.data) {
-    data[key] = res.data[key];
-  }
-  data.loaded = true;
+onMounted(() => {
+
+  api.get(`/movies/${route.params.id}`).then((res) => {
+    Object.assign(data, res.data);
+    data.loaded = true;
+    document.title = "Vue Movify - " + res.data.title;
+  });
+  
 });
 </script>
 
@@ -81,6 +78,7 @@ api.get(`/movies/${route.params.id}`).then((res) => {
 
       border-radius: 1rem;
     }
+
     .info__desc-container {
       display: flex;
       flex-direction: column;

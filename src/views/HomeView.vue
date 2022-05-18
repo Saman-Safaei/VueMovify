@@ -21,7 +21,7 @@ import MovieContainer from "@/components/Movie/MovieContainer.vue";
 import PageSelect from "@/components/Pagination/PageSelect.vue";
 
 import { api } from "@/api";
-import { computed, reactive, watch } from "vue";
+import { computed, reactive, watch, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
@@ -54,6 +54,10 @@ watch(page, async () => {
   await fetchData();
 }, { immediate: true });
 
+
+onMounted(() => {
+  document.title = "Vue Movify";
+});
 </script>
 
 <style lang="scss" scoped>

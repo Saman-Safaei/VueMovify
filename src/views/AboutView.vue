@@ -6,7 +6,12 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 
+
+onMounted(() => {
+  document.title = "Vue Movify - About Me";
+})
 </script>
 
 <style lang="scss" scoped>
