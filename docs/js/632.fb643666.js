@@ -1,2 +1,2 @@
 "use strict";(self["webpackChunkseries_tracker"]=self["webpackChunkseries_tracker"]||[]).push([[632],{3632:function(r,e,a){a.r(e),a.d(e,{default:function(){return v}});var t=a(3396);const s=r=>((0,t.dD)("data-v-7419ad5f"),r=r(),(0,t.Cn)(),r),n={class:"view error-view"},c=s((()=>(0,t._)("h3",{class:"error__title"},"Page Not Found - Error Code : 404",-1))),d=[c];function o(r,e){return(0,t.wg)(),(0,t.iD)("div",n,d)}var i=a(89);const u={},f=(0,i.Z)(u,[["render",o],["__scopeId","data-v-7419ad5f"]]);var v=f}}]);
-//# sourceMappingURL=632.f7df582a.js.map
+//# sourceMappingURL=632.fb643666.js.map
