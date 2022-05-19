@@ -11,7 +11,9 @@ export default defineStore('main', {
         this.pageLoading = true;
       },
       loadingFinished() {
-        this.pageLoading = false;
+        setTimeout(() => {
+          this.pageLoading = false;
+        }, 300);
       }
     },
     getters: {
