@@ -1,11 +1,15 @@
 <template>
-  <div class="progress" v-show="store.isPageLoading"></div>
+  <Transition name="fade">
+    <div class="progress" v-show="store.isPageLoading"></div>
+  </Transition>
 </template>
 
 <script setup>
 import mainStore from "@/stores/main";
 
 const store = mainStore();
+
+setTimeout(() => {}, 400)
 </script>
 
 <style lang="scss" scoped>
@@ -37,7 +41,19 @@ const store = mainStore();
     height: 0.3rem;
     width: 50%;
     background: $primary-light-color;
-    animation: loading 2s ease-in-out infinite;
+    animation: loading 0.8s ease-in-out infinite;
   }
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: opacity 100ms linear;
+}
+.fade-leave-active {
+  transition: opacity 300ms linear;
 }
 </style>
