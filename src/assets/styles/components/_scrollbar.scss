@@ -1,16 +1,15 @@
 @import '@/assets/styles/base/variables';
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 12px;
     background-color: rgb(230, 230, 230);
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: $primary-color;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 html {
-    scrollbar-color: $primary-color rgb(230, 230, 230);
-    scrollbar-width: thin;
+    scrollbar-color: $primary-color rgb(210, 210, 210);
 }
