@@ -46,15 +46,15 @@ function loadFinished() {
 
   .card__movie-rate {
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 0.5rem;
+    left: 0.5rem;
     background: linear-gradient(40deg, rgb(150, 143, 255), rgb(255, 255, 255));
     display: flex;
     justify-content: center;
     align-items: center;
     width: 2.8rem;
     height: 2.8rem;
-    border-radius: 50%;
+    border-radius: 1rem;
     border: solid rgb(90, 90, 90) 2px;
     color: rgb(80, 80, 80);
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
