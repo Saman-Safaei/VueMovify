@@ -25,6 +25,7 @@
 
   <transition name="fade">
     <div class="search-box" v-show="showSearch">
+      <div class="search-box__backdrop" @click="toggleSearch"></div>
       <form class="search-box__form" :action="formAction" method="get">
         <input class="search-box__field" type="text" name="search" autocomplete="off" />
         <button class="search-box__submit" type="submit">Search</button>
@@ -39,13 +40,18 @@ import { computed, onMounted, onBeforeUnmount, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 import navigationLinks from "@/components/Navigation/navigation_links.js";
 
-const route = useRoute();
-
+// Search Box -----------------------------------------------------
 const formAction = process.env.NODE_ENV === "production" ? "/VueMovify/movies/search" : "/movies/search";
-
-const addBg = ref(!route.name === "home");
-const showDrawer = ref(false);
 const showSearch = ref(false);
+
+function toggleSearch() {
+  showSearch.value = !showSearch.value;
+}
+
+// Navbar ---------------------------------------------------------
+const route = useRoute();
+const addBg = ref(!route.name === "home");
+
 const navbarBackground = computed(() => {
   return { "navbar--bg": addBg.value };
 });
@@ -54,6 +60,9 @@ function addNavBg() {
   const { scrollTop } = document.documentElement;
   addBg.value = scrollTop > 100 || route.name !== "home";
 }
+
+// Navigation Drawer ----------------------------------------------
+const showDrawer = ref(false);
 
 function toggleDrawer() {
   showDrawer.value = !showDrawer.value;
@@ -64,10 +73,7 @@ function toggleDrawer() {
   }
 }
 
-function toggleSearch() {
-  showSearch.value = !showSearch.value;
-}
-
+// Window Events --------------------------------------------------
 onMounted(() => {
   // add a EventListener for Window and update addBg with scrolling Event
   window.addEventListener("scroll", addNavBg);
@@ -164,12 +170,15 @@ onBeforeUnmount(() => {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
+  inset: 0 0 0 0;
   z-index: $search-z;
+
+  .search-box__backdrop {
+    position: absolute;
+    inset: 0 0 0 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
 
   .search-box__form {
     display: flex;
