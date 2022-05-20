@@ -1,11 +1,9 @@
 <template>
   <header class="header">
     <div class="header__content">
-      <h2 class="header__title">Lorem, ipsum dolor.</h2>
+      <h2 class="header__title">Vue Movify</h2>
       <p class="header__description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum laborum
-        a, ut vitae illo soluta natus quis repellendus veniam culpa?
-      </p>
+        This is a simple site with a fake movie rate in cards. All ratings in the cards is fake but in the Movie Details not !</p>
       <CellContainer>
           <Cell v-for="genre in genres" :genreId="genre['id']" :key="genre">{{ genre['name'] }}</Cell>
           <Cell genreId="#" v-if="showLoading">{{ loadingMessage }}</Cell>
@@ -66,7 +64,7 @@ api({
       }
 
       .header__description {
-          line-height: 1.3rem;
+          line-height: 1.4rem;
           word-spacing: 0.1rem;
           font-size: 1.1rem;
 
