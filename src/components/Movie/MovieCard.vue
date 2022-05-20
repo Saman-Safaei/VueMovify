@@ -33,6 +33,8 @@ function loadFinished() {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/styles/base/variables";
+
 .card {
   display: flex;
   flex-direction: column;
@@ -52,13 +54,18 @@ function loadFinished() {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 2.8rem;
-    height: 2.8rem;
+    width: 3.4rem;
+    height: 3.4rem;
     border-radius: 1rem;
     border: solid rgb(90, 90, 90) 2px;
     color: rgb(80, 80, 80);
     box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
     z-index: 1;
+
+    @media screen and (min-width: $md) {
+      width: 2.8rem;
+      height: 2.8rem;
+    }
   }
 
   .card__loading-placeholder {
